@@ -2,7 +2,7 @@
 import "@/styles/global.css";
 import ConsentBanner from "@/components/ConsentBanner.astro";
 import WhatsAppFlutuante from "@/components/WhatsAppFlutuante.astro";
-import { perfil, conteudo, rotas, type Idioma } from "@/data/perfil";
+import { perfil, conteudo, rotas, caminho, type Idioma } from "@/data/perfil";
 
 interface Props {
   lang: Idioma;
@@ -47,8 +47,8 @@ const jsonLd = {
     <link rel="alternate" hreflang="pt-BR" href={`${perfil.site}${paginas.pt}`} />
     <link rel="alternate" hreflang="en" href={`${perfil.site}${paginas.en}`} />
     <link rel="alternate" hreflang="x-default" href={`${perfil.site}${paginas.pt}`} />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="sitemap" href="/sitemap.xml" />
+    <link rel="icon" type="image/svg+xml" href={caminho("/favicon.svg")} />
+    <link rel="sitemap" href={caminho("/sitemap.xml")} />
     {paginas === rotas && <link rel="preload" as="image" href={perfil.foto.webp} type="image/webp" fetchpriority="high" />}
 
     <meta property="og:type" content="profile" />

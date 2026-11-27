@@ -5,6 +5,10 @@
 
 export type Idioma = "pt" | "en";
 
+// Prefixo do site publicado (astro.config: base "/portifolio"). Todo caminho interno passa por aqui.
+const BASE = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL.slice(0, -1) : import.meta.env.BASE_URL;
+export const caminho = (p: string) => `${BASE}${p}`;
+
 // Dados que não mudam com o idioma
 export const perfil = {
   nome: "Wendel Moretti Mencaroni",
@@ -17,17 +21,17 @@ export const perfil = {
   email: "",
   // WhatsApp informado pelo dono em 26/11/2026: (11) 98775-9692
   whatsapp: { exibicao: "(11) 98775-9692", e164: "5511987759692" },
-  // A CONFIRMAR: domínio final
-  site: "https://www.seudominio.com.br",
+  // Origem do site publicado (GitHub Pages). Os caminhos já incluem a base "/portifolio".
+  site: "https://wmencaroni-max.github.io",
   // Gerada por scripts/otimizar-foto.mjs a partir de referencias/foto-linkedin-original.png
-  foto: { webp: "/foto.webp", jpg: "/foto.jpg" },
+  foto: { webp: caminho("/foto.webp"), jpg: caminho("/foto.jpg") },
   // Google Analytics 4 (ex.: "G-XXXXXXX"). Vazio = nenhuma medição é carregada.
   // Mesmo preenchido, só carrega se o visitante aceitar "Estatísticas" no banner.
   gaId: "",
 };
 
-export const rotas: Record<Idioma, string> = { pt: "/", en: "/en/" };
-export const rotasPrivacidade: Record<Idioma, string> = { pt: "/privacidade/", en: "/en/privacy/" };
+export const rotas: Record<Idioma, string> = { pt: caminho("/"), en: caminho("/en/") };
+export const rotasPrivacidade: Record<Idioma, string> = { pt: caminho("/privacidade/"), en: caminho("/en/privacy/") };
 
 /** Link do WhatsApp com mensagem pronta no idioma da página */
 export const linkWhatsApp = (mensagem: string) =>

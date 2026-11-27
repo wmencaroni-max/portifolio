@@ -1,15 +1,14 @@
 # Situação atual (27/11/2026)
 
-Site funcional em português (/) e inglês (/en/), com foto, experiências e formação do LinkedIn, WhatsApp, banner de consentimento LGPD e Política de Privacidade. Código no repositório privado https://github.com/wmencaroni-max/portifolio (branch `main`). Validado localmente em http://localhost:4321 (`npm run dev`). Não publicado.
+Site em português e inglês publicado em https://wmencaroni-max.github.io/portifolio/ (GitHub Pages, repositório público https://github.com/wmencaroni-max/portifolio). Cada push na `main` publica sozinho. Local: http://localhost:4321/portifolio/ (`npm run dev`).
 
 ## Pendente do dono
 1. E-mail em `perfil.email` (também vale incluir no item 1 da Política de Privacidade).
-2. Domínio final em `perfil.site`, `public/robots.txt` e `public/sitemap.xml`.
+2. Opcional: domínio próprio (trocar `site`, remover `base` no astro.config; atualizar sitemap e robots; ADR 0003).
 3. Opcional: ID do Google Analytics 4 em `perfil.gaId`. Só carrega com consentimento.
 4. Revisão jurídica da Política de Privacidade; depois, remover o aviso de modelo (`privacidade.aviso`).
 5. Opcional: foto maior em que só o dono apareça; rodar `node scripts/otimizar-foto.mjs <arquivo>`.
-6. Opcional: certificações (o LinkedIn não tem nenhuma cadastrada em 27/11/2026).
-7. Opcional: resultados com números por experiência (o LinkedIn não traz métricas).
+6. Opcional: certificações e resultados com números por experiência (não existem no LinkedIn).
 
 ## Fonte do conteúdo
-Experiências, formação, "Sobre" e ferramentas lidos do LinkedIn do dono, logado no navegador do app, em 27/11/2026.
+Experiências, formação, "Sobre" e ferramentas lidos do LinkedIn do dono em 27/11/2026.

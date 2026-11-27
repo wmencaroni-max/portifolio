@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://www.seudominio.com.br/</loc>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.seudominio.com.br/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.seudominio.com.br/en/"/>
+    <loc>https://wmencaroni-max.github.io/portifolio/</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://wmencaroni-max.github.io/portifolio/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wmencaroni-max.github.io/portifolio/en/"/>
   </url>
   <url>
-    <loc>https://www.seudominio.com.br/en/</loc>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.seudominio.com.br/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.seudominio.com.br/en/"/>
+    <loc>https://wmencaroni-max.github.io/portifolio/en/</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://wmencaroni-max.github.io/portifolio/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wmencaroni-max.github.io/portifolio/en/"/>
   </url>
   <url>
-    <loc>https://www.seudominio.com.br/privacidade/</loc>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.seudominio.com.br/privacidade/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.seudominio.com.br/en/privacy/"/>
+    <loc>https://wmencaroni-max.github.io/portifolio/privacidade/</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://wmencaroni-max.github.io/portifolio/privacidade/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wmencaroni-max.github.io/portifolio/en/privacy/"/>
   </url>
   <url>
-    <loc>https://www.seudominio.com.br/en/privacy/</loc>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.seudominio.com.br/privacidade/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.seudominio.com.br/en/privacy/"/>
+    <loc>https://wmencaroni-max.github.io/portifolio/en/privacy/</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://wmencaroni-max.github.io/portifolio/privacidade/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wmencaroni-max.github.io/portifolio/en/privacy/"/>
   </url>
 </urlset>

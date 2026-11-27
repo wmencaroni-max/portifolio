@@ -11,7 +11,11 @@ npm install
 npm run dev
 ```
 
-Abra http://localhost:4321 (português) ou http://localhost:4321/en/ (inglês). Política de Privacidade: /privacidade/ e /en/privacy/.
+Abra http://localhost:4321/portifolio/ (português) ou http://localhost:4321/portifolio/en/ (inglês). Política de Privacidade: /portifolio/privacidade/ e /portifolio/en/privacy/.
+
+## Site publicado
+
+https://wmencaroni-max.github.io/portifolio/ (GitHub Pages). Cada push na `main` publica sozinho pelo workflow `.github/workflows/deploy.yml` (ADR 0003).
 
 | Comando | O que faz |
 | --- | --- |

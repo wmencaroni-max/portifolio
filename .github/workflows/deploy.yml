@@ -1,0 +1,35 @@
+# Publica o site no GitHub Pages a cada push na main.
+# Fonte: https://docs.astro.build/en/guides/deploy/github/ (consultado em 27/11/2026)
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+  # Permite rodar manualmente pela aba Actions
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout your repository using git
+        uses: actions/checkout@v7
+      - name: Install, build, and upload your site
+        uses: withastro/action@v6
+        # O gerenciador (npm) é detectado pelo package-lock.json; Node padrão da action: 24
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5

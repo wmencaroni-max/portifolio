@@ -9,6 +9,7 @@
 ## Durante a implementação
 - Conteúdo: edite só em src/data/perfil.ts, sempre em `conteudo.pt` E `conteudo.en` (o tipo `Conteudo` obriga as mesmas chaves). Não invente experiências, empresas, números ou contatos; deixe "A CONFIRMAR".
 - Foto: não edite public/foto.* à mão; rode `node scripts/otimizar-foto.mjs`.
+- Caminhos internos: o site roda sob a base `/portifolio` (GitHub Pages). Todo href/src interno passa por `caminho()` de src/data/perfil.ts. Depois do build, nenhum `href="/` sem `/portifolio` pode existir em dist/*.html.
 - Privacidade: nenhum script de terceiros fora de `src/scripts/consentimento.ts`. Toda ferramenta de medição ou marketing nova depende de consentimento (evento `consentimento:atualizado`), precisa constar na Política de Privacidade e exige mudar `VERSAO_CONSENTIMENTO` (ADR 0002).
 - Reutilize os tokens de src/styles/global.css e os componentes existentes (docs/DESIGN-SYSTEM.md).
 - React só em ilhas onde a interação justificar (hoje: MobileNav). O resto é Astro estático.
