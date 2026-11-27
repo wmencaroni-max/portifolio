@@ -83,6 +83,17 @@ Evidências da rodada 6:
 - 1280px (pt): 9 itens na linha do tempo, primeiro Hotmart e último Lelo Eventos; 2 itens de formação; 15 ferramentas; 0 marcadores [Empresa]/[Cargo]/[Curso]; JSON-LD jobTitle "Growth Analytics Sênior"; sem rolagem horizontal.
 - 375px (en): lang en, 9 cargos em inglês, nenhuma palavra de teste em português, título mais longo termina em 355px de 375px, sem rolagem horizontal.
 
+## Rodada 7 (27/11/2026): publicação no GitHub Pages
+- Pedido do dono: link público. Ele escolheu publicar o site (GitHub Pages), ciente de que código, foto e WhatsApp ficam públicos.
+- `base: /portifolio` + helper `caminho()`; workflow `.github/workflows/deploy.yml` do guia oficial do Astro (ADR 0003). Commit e91e030.
+- Repositório alterado para público em Settings > Danger Zone (sem pedido de senha). Pages com fonte "GitHub Actions".
+
+Evidências da rodada 7:
+- Build local: 4 páginas, 0 links internos sem `/portifolio` em dist/*.html; navegação por clique em /portifolio/ (idioma, política, voltar) ok.
+- API pública: `private: false, visibility: public`.
+- Run https://github.com/wmencaroni-max/portifolio/actions/runs/45999172836: completed success.
+- https://wmencaroni-max.github.io/portifolio/: /, /en/, /privacidade/, /en/privacy/, foto.webp, foto.jpg, favicon.svg, sitemap.xml com HTTP 200; HTML com experiências e link do WhatsApp; no navegador: foto 800x800, JS ativo, banner de consentimento visível na primeira visita, 9 experiências, todas as requisições do site 200.
+
 ## Não verificado
 Safari/iOS real, leitor de tela real, Lighthouse, publicação, revisão de inglês por falante nativo, carregamento real do GA4 com um ID (nenhuma requisição externa foi feita nos testes), revisão jurídica da Política de Privacidade, abertura real do WhatsApp no celular.
 
