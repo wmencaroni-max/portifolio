@@ -21,7 +21,12 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: perfil.nome,
-  jobTitle: perfil.cargo,
+  jobTitle: t.cargo,
+  worksFor: { "@type": "Organization", name: "Hotmart" },
+  alumniOf: [
+    { "@type": "CollegeOrUniversity", name: "Universidade Presbiteriana Mackenzie" },
+    { "@type": "CollegeOrUniversity", name: "Centro Universitário Fundação Santo André" },
+  ],
   image: `${perfil.site}${perfil.foto.jpg}`,
   telephone: `+${perfil.whatsapp.e164}`,
   address: { "@type": "PostalAddress", addressLocality: "São Bernardo do Campo", addressRegion: "SP", addressCountry: "BR" },

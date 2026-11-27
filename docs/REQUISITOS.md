@@ -5,7 +5,8 @@ Portfólio pessoal de página única que apresenta Wendel Moretti Mencaroni e le
 
 ## Fonte do conteúdo
 - Confirmado por busca pública em 26/11/2026: nome, cargo (Tech Analytics Senior), especialidades (data science, processamento de big data, analytics, growth hacking) e cidade (São Bernardo do Campo, SP).
-- A confirmar: experiências, formação, certificações, ferramentas, foto, e-mail, WhatsApp, domínio. O perfil do LinkedIn exige login e não pôde ser lido.
+- Lido do LinkedIn logado em 27/11/2026: cargo atual (Growth Analytics Sênior, Hotmart), 9 experiências, formação, "Sobre" e ferramentas. Sem certificações cadastradas.
+- A confirmar: e-mail e domínio.
 
 ## Seções
 Topo, faixa de áreas, Sobre, Competências, Trajetória, Método, Como posso ajudar, Contato, Rodapé.
@@ -26,5 +27,5 @@ Topo, faixa de áreas, Sobre, Competências, Trajetória, Método, Como posso aj
 - [ ] Revisão jurídica da Política de Privacidade (pendente do dono).
 - [x] Foto do perfil no topo (melhorada e otimizada em WebP com fallback JPG).
 - [x] Versão em inglês em /en/ com seletor de idioma, hreflang e og:locale.
-- [ ] Dados reais do perfil preenchidos nos dois idiomas (pendente do dono).
+- [x] Experiências e formação do LinkedIn nos dois idiomas (lidas em 27/11/2026).
 - [ ] Domínio final configurado em `perfil.site`, robots.txt e sitemap.xml.

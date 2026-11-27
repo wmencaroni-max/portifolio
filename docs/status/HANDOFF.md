@@ -71,6 +71,18 @@ Evidências da rodada 5:
 - Privacidade: lang, h1, 7 seções, canonical e hreflang corretos; botão de idioma alterna entre /privacidade/ e /en/privacy/; menu aponta para /#sobre e /en/#sobre.
 - Contraste do botão WhatsApp (#052e16 sobre #25d366): 7,52:1.
 
+## Rodada 6 (27/11/2026): Git, GitHub e conteúdo do LinkedIn
+- Repositório Git inicializado (`main`), `.gitattributes` com LF para texto. Identidade só neste repositório: Wendel Moretti Mencaroni <361768123+wmencaroni-max@users.noreply.github.com>.
+- Repositório privado criado no GitHub pela interface web: https://github.com/wmencaroni-max/portifolio. Primeiro commit 3d8d522 enviado; `git ls-remote` igual ao HEAD local.
+- Conteúdo lido do LinkedIn logado: 9 cargos (Hotmart, Mutant, GFT x3, Cognizant x2, Stefanini, Lelo Eventos), formação (pós Mackenzie 2022 a 2023; Sistemas de Informação, Fundação Santo André 2013 a 2016), "Sobre" e lista de ferramentas. Sem certificações cadastradas.
+- Cargo atual corrigido para Growth Analytics Sênior (en: Senior Growth Analyst), agora por idioma em `conteudo.*.cargo`; JSON-LD com `worksFor` e `alumniOf`.
+- O chip de cada experiência mostra local e modelo de trabalho (o LinkedIn não traz números de resultado).
+
+Evidências da rodada 6:
+- `astro check` 0 erros; build gera as 4 páginas; console 0 erros.
+- 1280px (pt): 9 itens na linha do tempo, primeiro Hotmart e último Lelo Eventos; 2 itens de formação; 15 ferramentas; 0 marcadores [Empresa]/[Cargo]/[Curso]; JSON-LD jobTitle "Growth Analytics Sênior"; sem rolagem horizontal.
+- 375px (en): lang en, 9 cargos em inglês, nenhuma palavra de teste em português, título mais longo termina em 355px de 375px, sem rolagem horizontal.
+
 ## Não verificado
 Safari/iOS real, leitor de tela real, Lighthouse, publicação, revisão de inglês por falante nativo, carregamento real do GA4 com um ID (nenhuma requisição externa foi feita nos testes), revisão jurídica da Política de Privacidade, abertura real do WhatsApp no celular.
 

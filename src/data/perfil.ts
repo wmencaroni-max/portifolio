@@ -9,7 +9,7 @@ export type Idioma = "pt" | "en";
 export const perfil = {
   nome: "Wendel Moretti Mencaroni",
   nomeCurto: "Wendel",
-  cargo: "Tech Analytics Senior",
+  cargo: "Growth Analytics Sênior",
   cidade: "São Bernardo do Campo, SP",
   especialidades: ["Data Science", "Big Data", "Analytics", "Growth Hacking"],
   linkedin: "https://www.linkedin.com/in/wendel-moretti-mencaroni-38410910a/",
@@ -33,14 +33,22 @@ export const rotasPrivacidade: Record<Idioma, string> = { pt: "/privacidade/", e
 export const linkWhatsApp = (mensagem: string) =>
   `https://wa.me/${perfil.whatsapp.e164}?text=${encodeURIComponent(mensagem)}`;
 
+// Ferramentas listadas na seção "Sobre" do LinkedIn (iguais nos dois idiomas)
+const ferramentas = [
+  "Google Analytics 4", "Google Tag Manager", "Google Ads", "Looker Studio", "Firebase",
+  "Google Marketing Platform", "Adobe Analytics", "Power BI", "AppsFlyer", "Search Console",
+  "Python", "R", "JavaScript", "APIs", "Digibee",
+];
+
 // Versão do texto de consentimento: mude quando as finalidades mudarem para pedir de novo
 export const VERSAO_CONSENTIMENTO = "2026-11-26";
 
 const pt = {
   htmlLang: "pt-BR",
   ogLocale: "pt_BR",
-  titulo: `${perfil.nome} | ${perfil.cargo} · Data Science, Big Data e Growth`,
-  descricao: `${perfil.nome}, ${perfil.cargo} em ${perfil.cidade}. Data science, processamento de big data, analytics e growth hacking para transformar dados em crescimento.`,
+  cargo: "Growth Analytics Sênior",
+  titulo: `${perfil.nome} | Growth Analytics Sênior · Data Science, Big Data e Growth`,
+  descricao: `${perfil.nome}, Growth Analytics Sênior em ${perfil.cidade}. Mais de 10 anos com dados: digital analytics, ciência de dados, big data e growth hacking para web e app.`,
   ui: {
     pular: "Pular para o conteúdo",
     inicio: "início",
@@ -58,7 +66,7 @@ const pt = {
     infoRapida: "Informações rápidas",
     areas: "Áreas de atuação",
     ferramentas: "Ferramentas e tecnologias",
-    subMarca: "Tech Analytics",
+    subMarca: "Growth Analytics",
   },
   navegacao: [
     { href: "#sobre", rotulo: "Sobre" },
@@ -79,12 +87,13 @@ const pt = {
   sobre: {
     kicker: "Sobre",
     titulo: "Dados só têm valor quando viram ação.",
-    p1: `Sou <strong>${perfil.cargo}</strong>, com especialidade em <strong>data science</strong>, <strong>processamento de big data</strong>, <strong>analytics</strong> e <strong>growth hacking</strong>. Meu trabalho é conectar engenharia de dados e estratégia de negócio: estruturar a coleta, processar grandes volumes de informação e transformar isso em análises claras que orientam decisões.`,
-    p2: "Acredito em crescimento guiado por evidência: hipóteses bem definidas, métricas confiáveis e experimentos que mostram, com números, o que funciona.",
+    // Fonte: seção "Sobre" do LinkedIn, lida em 27/11/2026
+    p1: `Sou <strong>Growth Analytics Sênior</strong> na <strong>Hotmart</strong>, especialista em <strong>Ciência de Dados (Big Data Processing and Analytics)</strong> pelo Mackenzie e bacharel em Sistemas de Informação. Trabalho com dados há <strong>mais de 10 anos</strong>: do entendimento das necessidades do time ao mapa de tags, implementação via dataLayer, relatórios com os KPIs do negócio e melhorias na jornada do usuário em web e app, praticando growth hacking.`,
+    p2: "Também atuei como analista funcional sênior em integrações de APIs com Digibee, documentação técnica e gestão das entregas do time de desenvolvimento com metodologias ágeis. Tomo decisões baseadas em dados e uso arquitetura de dados, visualização, raspagem de dados e análise textual com Python, R e IA.",
     stats: [
-      { valor: "4", texto: "pilares: ciência de dados, big data, analytics e growth" },
-      { valor: "360°", texto: "da coleta do dado até a decisão de negócio" },
-      { valor: "SP", texto: "São Bernardo do Campo, atuação remota ou híbrida" },
+      { valor: "10+", texto: "anos trabalhando com dados" },
+      { valor: "Pós", texto: "em Ciência de Dados e Big Data pelo Mackenzie" },
+      { valor: "LATAM", texto: "projetos para América Latina e Europa (Google, via Cognizant)" },
     ],
   },
   competencias: {
@@ -97,23 +106,29 @@ const pt = {
       { icone: "bars", titulo: "Analytics", texto: "Plano de medição, KPIs bem definidos e dashboards que mostram o que importa, sem ruído." },
       { icone: "trend", titulo: "Growth Hacking", texto: "Experimentos rápidos em funil, aquisição e retenção para encontrar alavancas de crescimento escaláveis." },
     ],
-    // A CONFIRMAR: ferramentas que você realmente usa
-    ferramentas: ["SQL", "Python", "Big Data", "ETL / ELT", "Modelagem de dados", "Dashboards e BI", "Testes A/B", "Web e Product Analytics"],
+    // Fonte: seção "Sobre" do LinkedIn (Digital Analytics e desenvolvimento)
+    ferramentas: ferramentas,
   },
   trajetoria: {
     kicker: "Trajetória",
     titulo: "Experiência profissional",
-    formacaoTitulo: "Formação e certificações",
-    // A CONFIRMAR: experiências do LinkedIn, da mais recente para a mais antiga
+    formacaoTitulo: "Formação acadêmica",
+    // Fonte: LinkedIn > Experiência, lido em 27/11/2026 (mais recente primeiro)
     experiencias: [
-      { periodo: "20XX a atual", cargo: "Tech Analytics Senior", empresa: "[Empresa]", destaque: "[Resultado de destaque com número]", descricao: "[Escopo, responsabilidades e impacto em data science, big data, analytics e growth.]" },
-      { periodo: "20XX a 20XX", cargo: "[Cargo]", empresa: "[Empresa]", destaque: "[Resultado de destaque com número]", descricao: "[Descrição curta das entregas e do impacto.]" },
-      { periodo: "20XX a 20XX", cargo: "[Cargo]", empresa: "[Empresa]", destaque: "[Resultado de destaque com número]", descricao: "[Descrição curta das entregas e do impacto.]" },
+      { periodo: "ago/2025 a atual", cargo: "Growth Analytics Sênior", empresa: "Hotmart", destaque: "São Paulo · Híbrido", descricao: "Growth analytics com tagueamento e análise de dados para apoiar a evolução dos produtos e da jornada dos usuários." },
+      { periodo: "mai/2024 a set/2025", cargo: "Tech Analytics Senior", empresa: "Mutant", destaque: "São Paulo · Híbrido", descricao: "Interação com o negócio para entender necessidades, documentação técnica para implementação de tags no site e app de uma grande instituição financeira, homologação dos eventos, dashboards com os KPIs do negócio e mentalidade de growth baseada em dados." },
+      { periodo: "jul/2022 a fev/2024", cargo: "Analista Funcional Sênior", empresa: "GFT", destaque: "São Paulo", descricao: "Comunicação com clientes para entender necessidades de integração, documentação técnica para pipelines com Digibee e distribuição de tarefas ao time de desenvolvimento, garantindo os prazos." },
+      { periodo: "mar/2022 a jun/2022", cargo: "Web Analytics Pleno", empresa: "GFT", destaque: "Remoto", descricao: "Necessidades de uma construtora nacional: documentação de tagueamento, análises e extrações de dados com GA4, Google Ads, Looker Studio e Firebase, e desempenho de tráfego e campanhas para apoiar decisões do negócio." },
+      { periodo: "jul/2020 a fev/2022", cargo: "Web Analytics", empresa: "GFT", destaque: "Remoto · América Latina", descricao: "Atendimento a clientes de toda a América Latina de uma grande instituição financeira: documentação de tagueamento, relatórios com GA4, Google Ads, Looker Studio e Firebase, e análise de tráfego de sites, apps e campanhas." },
+      { periodo: "set/2019 a fev/2020", cargo: "Web Analytics Specialist and Consultant (Google)", empresa: "Cognizant", destaque: "América do Sul, Central e Europa", descricao: "Google Tag Manager, Google Analytics (eventos, metas, e-commerce, remarketing), Google Ads, Merchant Center, otimização de performance e AMP, com integração em Magento, Shopify, WordPress e outros CMSs." },
+      { periodo: "jul/2018 a ago/2019", cargo: "Agente de Atendimento III", empresa: "Cognizant", destaque: "São Paulo", descricao: "Suporte às ferramentas de publicidade online do Google por e-mail, chat e telefone, analisando cada caso para oferecer a melhor solução." },
+      { periodo: "nov/2016 a jun/2018", cargo: "Analista de Suporte Técnico", empresa: "Stefanini", destaque: "São Paulo", descricao: "Suporte e administração do Office 365 corporativo da SoftwareOne, com conferências entre América Latina e especialistas da Índia (espanhol e inglês) e relatórios diários." },
+      { periodo: "dez/2010 a dez/2014", cargo: "Auxiliar Administrativo", empresa: "Lelo Eventos", destaque: "Santo André", descricao: "Testes, conferência e liberação de equipamentos profissionais de sonorização e iluminação." },
     ],
-    // A CONFIRMAR: formação e certificações
+    // Fonte: LinkedIn > Formação acadêmica. Não há certificações cadastradas no LinkedIn.
     formacao: [
-      { titulo: "[Curso]", detalhe: "[Instituição], [ano]" },
-      { titulo: "[Certificação]", detalhe: "[Emissor], [ano]" },
+      { titulo: "Pós-graduação (Especialização) em Ciência de Dados: Big Data Processing and Analytics", detalhe: "Universidade Presbiteriana Mackenzie, 2022 a 2023" },
+      { titulo: "Bacharelado em Sistemas de Informação", detalhe: "Centro Universitário Fundação Santo André, 2013 a 2016" },
     ],
   },
   metodo: {
@@ -192,8 +207,9 @@ export type Conteudo = typeof pt;
 const en: Conteudo = {
   htmlLang: "en",
   ogLocale: "en_US",
-  titulo: `${perfil.nome} | ${perfil.cargo} · Data Science, Big Data and Growth`,
-  descricao: `${perfil.nome}, ${perfil.cargo} based in ${perfil.cidade}, Brazil. Data science, big data processing, analytics and growth hacking to turn data into growth.`,
+  cargo: "Senior Growth Analyst",
+  titulo: `${perfil.nome} | Senior Growth Analyst · Data Science, Big Data and Growth`,
+  descricao: `${perfil.nome}, Senior Growth Analyst based in ${perfil.cidade}, Brazil. 10+ years working with data: digital analytics, data science, big data and growth hacking for web and apps.`,
   ui: {
     pular: "Skip to content",
     inicio: "home",
@@ -211,7 +227,7 @@ const en: Conteudo = {
     infoRapida: "Quick facts",
     areas: "Areas of expertise",
     ferramentas: "Tools and technologies",
-    subMarca: "Tech Analytics",
+    subMarca: "Growth Analytics",
   },
   navegacao: [
     { href: "#sobre", rotulo: "About" },
@@ -232,12 +248,12 @@ const en: Conteudo = {
   sobre: {
     kicker: "About",
     titulo: "Data only matters when it turns into action.",
-    p1: `I'm a <strong>${perfil.cargo}</strong> specialized in <strong>data science</strong>, <strong>big data processing</strong>, <strong>analytics</strong> and <strong>growth hacking</strong>. My work connects data engineering with business strategy: structuring data collection, processing large volumes of information and turning it into clear analyses that guide decisions.`,
-    p2: "I believe in evidence-driven growth: well-defined hypotheses, reliable metrics and experiments that show, with numbers, what works.",
+    p1: `I'm a <strong>Senior Growth Analyst</strong> at <strong>Hotmart</strong>, with a specialization in <strong>Data Science (Big Data Processing and Analytics)</strong> from Mackenzie University and a bachelor's degree in Information Systems. I've been working with data for <strong>more than 10 years</strong>: from understanding the team's needs to tag mapping, dataLayer implementation, KPI reports and user journey improvements on web and app, practicing growth hacking.`,
+    p2: "I have also worked as a senior functional analyst on API integrations with Digibee, technical documentation and managing the development team's deliveries with agile methods. I make data-driven decisions and work with data architecture, visualization, web scraping and text analysis using Python, R and AI.",
     stats: [
-      { valor: "4", texto: "pillars: data science, big data, analytics and growth" },
-      { valor: "360°", texto: "from data collection to business decision" },
-      { valor: "BR", texto: "São Bernardo do Campo, SP, available remote or hybrid" },
+      { valor: "10+", texto: "years working with data" },
+      { valor: "Post", texto: "graduate degree in Data Science and Big Data, Mackenzie" },
+      { valor: "LATAM", texto: "projects for Latin America and Europe (Google, via Cognizant)" },
     ],
   },
   competencias: {
@@ -250,20 +266,26 @@ const en: Conteudo = {
       { icone: "bars", titulo: "Analytics", texto: "Measurement plans, well-defined KPIs and dashboards that show what matters, without noise." },
       { icone: "trend", titulo: "Growth Hacking", texto: "Fast experiments across funnel, acquisition and retention to find scalable growth levers." },
     ],
-    ferramentas: ["SQL", "Python", "Big Data", "ETL / ELT", "Data modeling", "Dashboards and BI", "A/B testing", "Web and Product Analytics"],
+    ferramentas: ferramentas,
   },
   trajetoria: {
     kicker: "Experience",
     titulo: "Professional experience",
-    formacaoTitulo: "Education and certifications",
+    formacaoTitulo: "Education",
     experiencias: [
-      { periodo: "20XX to present", cargo: "Tech Analytics Senior", empresa: "[Company]", destaque: "[Key result with a number]", descricao: "[Scope, responsibilities and impact in data science, big data, analytics and growth.]" },
-      { periodo: "20XX to 20XX", cargo: "[Role]", empresa: "[Company]", destaque: "[Key result with a number]", descricao: "[Short description of deliverables and impact.]" },
-      { periodo: "20XX to 20XX", cargo: "[Role]", empresa: "[Company]", destaque: "[Key result with a number]", descricao: "[Short description of deliverables and impact.]" },
+      { periodo: "Aug 2025 to present", cargo: "Senior Growth Analyst", empresa: "Hotmart", destaque: "São Paulo · Hybrid", descricao: "Growth analytics with tagging and data analysis to support the evolution of products and the user journey." },
+      { periodo: "May 2024 to Sep 2025", cargo: "Tech Analytics Senior", empresa: "Mutant", destaque: "São Paulo · Hybrid", descricao: "Worked with the business to understand needs, wrote technical documentation for tag implementation on the website and app of a large financial institution, validated the events, built KPI dashboards and applied a data-driven growth mindset." },
+      { periodo: "Jul 2022 to Feb 2024", cargo: "Senior Functional Analyst", empresa: "GFT", destaque: "São Paulo", descricao: "Worked with clients to understand integration needs, wrote technical documentation for Digibee pipelines and assigned tasks to the development team, ensuring deadlines were met." },
+      { periodo: "Mar 2022 to Jun 2022", cargo: "Web Analytics (Mid-level)", empresa: "GFT", destaque: "Remote", descricao: "For a national construction company: tagging documentation, data analysis and extraction with GA4, Google Ads, Looker Studio and Firebase, and traffic and campaign performance analysis to support business decisions." },
+      { periodo: "Jul 2020 to Feb 2022", cargo: "Web Analytics", empresa: "GFT", destaque: "Remote · Latin America", descricao: "Served clients across Latin America for a large financial institution: tagging documentation, reports with GA4, Google Ads, Looker Studio and Firebase, and traffic analysis for websites, apps and campaigns." },
+      { periodo: "Sep 2019 to Feb 2020", cargo: "Web Analytics Specialist and Consultant (Google)", empresa: "Cognizant", destaque: "South and Central America, Europe", descricao: "Google Tag Manager, Google Analytics (events, goals, e-commerce, remarketing), Google Ads, Merchant Center, performance optimization and AMP, integrated with Magento, Shopify, WordPress and other CMSs." },
+      { periodo: "Jul 2018 to Aug 2019", cargo: "Customer Support Agent III", empresa: "Cognizant", destaque: "São Paulo", descricao: "Support for Google's online advertising tools by email, chat and phone, analyzing each case to offer the best solution." },
+      { periodo: "Nov 2016 to Jun 2018", cargo: "Technical Support Analyst", empresa: "Stefanini", destaque: "São Paulo", descricao: "Support and administration of SoftwareOne's corporate Office 365, bridging calls between Latin America and specialists in India (Spanish and English) and writing daily reports." },
+      { periodo: "Dec 2010 to Dec 2014", cargo: "Administrative Assistant", empresa: "Lelo Eventos", destaque: "Santo André", descricao: "Testing, checking and releasing professional sound and lighting equipment." },
     ],
     formacao: [
-      { titulo: "[Degree]", detalhe: "[Institution], [year]" },
-      { titulo: "[Certification]", detalhe: "[Issuer], [year]" },
+      { titulo: "Postgraduate Specialization in Data Science: Big Data Processing and Analytics", detalhe: "Mackenzie Presbyterian University, 2022 to 2023" },
+      { titulo: "Bachelor's Degree in Information Systems", detalhe: "Fundação Santo André University Center, 2013 to 2016" },
     ],
   },
   metodo: {
