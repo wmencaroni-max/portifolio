@@ -1,0 +1,8 @@
+# Política de bytes: texto sempre com LF no repositório e na cópia de trabalho
+* text=auto eol=lf
+
+# Binários
+*.png binary
+*.jpg binary
+*.webp binary
+*.woff2 binary

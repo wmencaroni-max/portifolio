@@ -1,0 +1,224 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import IconLinkedin from "@/components/IconLinkedin.astro";
+import Footer from "@/components/Footer.astro";
+import { ArrowRight, MapPin, ChartLine, Database, ChartColumn, TrendingUp, Check, Mail, MessageCircle } from "lucide-react";
+import { perfil, conteudo, linkWhatsApp, type Idioma } from "@/data/perfil";
+
+interface Props { lang: Idioma }
+const { lang } = Astro.props;
+const t = conteudo[lang];
+
+const icones = { chart: ChartLine, database: Database, bars: ChartColumn, trend: TrendingUp } as const;
+const h2 = "reveal text-[clamp(1.9rem,3.8vw,2.9rem)] font-bold leading-tight";
+---
+<Layout lang={lang}>
+  <Header lang={lang} />
+
+  <main id="conteudo">
+    <!-- TOPO -->
+    <section id="topo" class="hero-bg relative isolate overflow-hidden pt-12 md:pt-24">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="container-site grid items-center gap-12 md:grid-cols-[1.2fr_.8fr] md:gap-10 lg:grid-cols-[1.15fr_.85fr] lg:gap-16">
+        <div>
+          <p class="reveal inline-flex items-center gap-2 rounded-full border border-border bg-card/70 px-3.5 py-1.5 text-sm font-semibold text-muted-foreground">
+            <span class="size-2 rounded-full bg-data shadow-[0_0_0_4px_color-mix(in_srgb,var(--data)_22%,transparent)]" aria-hidden="true"></span>
+            {perfil.nome} · {perfil.cargo}
+          </p>
+          <h1 class="reveal mt-5 text-[clamp(2.4rem,5.6vw,4.1rem)] font-bold leading-[1.05] tracking-[-0.04em]">
+            {t.hero.tituloA}<span class="text-grad">{t.hero.tituloB}</span>
+          </h1>
+          <p class="reveal mt-5 max-w-[36em] text-lg text-muted-foreground md:text-xl">{t.hero.lead}</p>
+          <div class="reveal mt-8 flex flex-wrap gap-3">
+            <a href="#contato" class="btn-pill btn-primary">{t.hero.ctaPrincipal} <ArrowRight aria-hidden="true" /></a>
+            <a href={perfil.linkedin} target="_blank" rel="noopener" class="btn-pill btn-ghost"><IconLinkedin /> LinkedIn</a>
+          </div>
+          <ul class="reveal mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground" aria-label={t.ui.infoRapida}>
+            <li class="flex items-center gap-2"><MapPin className="size-4" aria-hidden="true" /> {perfil.cidade}</li>
+            <li class="flex items-center gap-2"><span class="status-dot" aria-hidden="true"></span> {t.hero.disponivel}</li>
+          </ul>
+        </div>
+
+        <!-- Foto em moldura circular com anel em gradiente -->
+        <!-- Foto quadrada na frente; gráficos grandes atrás como marca d'água (decorativos) -->
+        <div class="reveal hero-visual relative mx-auto w-full max-w-[300px] sm:max-w-[340px] md:max-w-[300px] lg:max-w-[400px]">
+          <div class="wm-chart wm-bars" aria-hidden="true">
+            {[38, 62, 48, 80, 66, 92, 74].map((h, i) => <i class="bar" style={`height:${h}%;animation-delay:${i * 0.08}s`}></i>)}
+          </div>
+          <svg class="wm-chart wm-line" viewBox="0 0 320 160" fill="none" aria-hidden="true">
+            <defs><linearGradient id="wm-area" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="currentColor" stop-opacity=".45"/><stop offset="1" stop-color="currentColor" stop-opacity="0"/></linearGradient></defs>
+            <g stroke="currentColor" stroke-opacity=".25" stroke-dasharray="2 6">
+              <path d="M0 40H320M0 80H320M0 120H320" />
+            </g>
+            <path d="M0 140 L40 128 L80 132 L120 104 L160 110 L200 78 L240 66 L280 38 L320 18 L320 160 L0 160Z" fill="url(#wm-area)"/>
+            <path class="spark-line" pathLength="100" d="M0 140 L40 128 L80 132 L120 104 L160 110 L200 78 L240 66 L280 38 L320 18" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <g fill="currentColor">
+              <circle cx="120" cy="104" r="4"/><circle cx="200" cy="78" r="4"/><circle cx="280" cy="38" r="4"/>
+            </g>
+          </svg>
+          <svg class="wm-chart wm-donut" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+            <circle cx="50" cy="50" r="38" stroke="currentColor" stroke-opacity=".25" stroke-width="12"/>
+            <circle cx="50" cy="50" r="38" stroke="currentColor" stroke-width="12" stroke-dasharray="167 239" stroke-linecap="round" transform="rotate(-90 50 50)"/>
+          </svg>
+
+          <div class="photo-frame relative z-10">
+            <picture>
+              <source srcset={perfil.foto.webp} type="image/webp" />
+              <img src={perfil.foto.jpg} alt={t.ui.fotoAlt} width="800" height="800" fetchpriority="high" decoding="async"
+                class="block aspect-square w-full object-cover" />
+            </picture>
+          </div>
+        </div>
+      </div>
+
+      <div class="marquee mt-16 border-y border-border md:mt-24" aria-label={t.ui.areas}>
+        <div class="marquee-track">
+          {[...t.faixa, ...t.faixa].map((txt, i) => (
+            <span aria-hidden={i >= t.faixa.length ? "true" : undefined} class="flex items-center gap-8 whitespace-nowrap px-8 py-5 font-semibold text-muted-foreground after:text-xs after:text-data after:content-['✦']">{txt}</span>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- SOBRE -->
+    <section id="sobre" class="py-20 md:py-28">
+      <div class="container-site grid gap-10 lg:grid-cols-[.9fr_1.1fr] lg:gap-20">
+        <div>
+          <p class="kicker reveal">{t.sobre.kicker}</p>
+          <h2 class={h2}>{t.sobre.titulo}</h2>
+        </div>
+        <div>
+          <p class="reveal text-lg text-muted-foreground [&_strong]:font-semibold [&_strong]:text-foreground" set:html={t.sobre.p1} />
+          <p class="reveal mt-4 text-lg text-muted-foreground">{t.sobre.p2}</p>
+          <div class="mt-8 grid gap-4 sm:grid-cols-3">
+            {t.sobre.stats.map((s) => (
+              <div class="reveal rounded-[var(--radius)] border border-border bg-card p-5"><strong class="text-grad block text-3xl font-bold tracking-tight">{s.valor}</strong><span class="mt-1 block text-sm text-muted-foreground">{s.texto}</span></div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPETÊNCIAS -->
+    <section id="competencias" class="border-y border-border bg-surface-alt py-20 md:py-28">
+      <div class="container-site">
+        <div class="mb-12 max-w-[760px]">
+          <p class="kicker reveal">{t.competencias.kicker}</p>
+          <h2 class={h2}>{t.competencias.titulo}</h2>
+          <p class="reveal mt-3 text-lg text-muted-foreground">{t.competencias.lead}</p>
+        </div>
+        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {t.competencias.itens.map((c) => {
+            const Icone = icones[c.icone as keyof typeof icones];
+            return (
+              <article class="card-site reveal">
+                <div class="mb-4 grid size-[46px] place-items-center rounded-xl bg-primary/15 text-primary"><Icone className="size-[22px]" aria-hidden="true" /></div>
+                <h3 class="mb-2 text-xl font-semibold">{c.titulo}</h3>
+                <p class="text-muted-foreground">{c.texto}</p>
+              </article>
+            );
+          })}
+        </div>
+        <ul class="reveal mt-9 flex flex-wrap gap-2" aria-label={t.ui.ferramentas}>
+          {t.competencias.ferramentas.map((f) => <li class="rounded-full border border-border bg-card px-4 py-1.5 text-sm font-medium text-muted-foreground">{f}</li>)}
+        </ul>
+      </div>
+    </section>
+
+    <!-- TRAJETÓRIA -->
+    <section id="trajetoria" class="py-20 md:py-28">
+      <div class="container-site">
+        <div class="mb-12 max-w-[760px]">
+          <p class="kicker reveal">{t.trajetoria.kicker}</p>
+          <h2 class={h2}>{t.trajetoria.titulo}</h2>
+        </div>
+        <ol class="timeline">
+          {t.trajetoria.experiencias.map((e) => (
+            <li class="reveal relative grid gap-1 pb-11 pl-8 md:grid-cols-[180px_1fr] md:gap-10 md:pl-0">
+              <span class="tl-dot" aria-hidden="true"></span>
+              <div class="pt-0.5 font-mono text-sm text-muted-foreground md:pr-6 md:text-right">{e.periodo}</div>
+              <div class="md:pl-4">
+                <h3 class="text-xl font-semibold">{e.cargo} <span class="font-medium text-muted-foreground">· {e.empresa}</span></h3>
+                <p class="mt-2 inline-block rounded-lg bg-data/12 px-3 py-1 text-sm font-semibold text-data">{e.destaque}</p>
+                <p class="mt-3 text-muted-foreground">{e.descricao}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+        <div class="reveal rounded-[var(--radius)] border border-border bg-card p-7">
+          <h3 class="mb-3 text-xl font-semibold">{t.trajetoria.formacaoTitulo}</h3>
+          <ul class="grid list-disc gap-1.5 pl-5 text-muted-foreground">
+            {t.trajetoria.formacao.map((f) => <li><strong class="text-foreground">{f.titulo}</strong>, {f.detalhe}</li>)}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- MÉTODO -->
+    <section id="metodo" class="border-y border-border bg-surface-alt py-20 md:py-28">
+      <div class="container-site">
+        <div class="mb-12 max-w-[760px]">
+          <p class="kicker reveal">{t.metodo.kicker}</p>
+          <h2 class={h2}>{t.metodo.tituloA}<span class="text-grad">{t.metodo.sorte}</span>{t.metodo.tituloB}<span class="text-grad">{t.metodo.metodo}</span>?</h2>
+          <p class="reveal mt-3 text-lg text-muted-foreground">{t.metodo.lead}</p>
+        </div>
+        <ol class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {t.metodo.etapas.map((s) => (
+            <li class="reveal rounded-[var(--radius)] border border-border bg-card p-6">
+              <span class="text-grad font-mono text-4xl font-bold tracking-tight">{s.n}</span>
+              <p class="mt-2 text-xs font-bold uppercase tracking-[0.12em] text-muted-foreground">{s.tag}</p>
+              <h3 class="mt-1 text-lg font-semibold">{s.titulo}</h3>
+              <p class="mt-2 text-[0.96rem] text-muted-foreground">{s.texto}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
+    <!-- COMO AJUDO -->
+    <section id="servicos" class="py-20 md:py-28">
+      <div class="container-site">
+        <div class="mb-12 max-w-[760px]">
+          <p class="kicker reveal">{t.servicos.kicker}</p>
+          <h2 class={h2}>{t.servicos.titulo}</h2>
+        </div>
+        <div class="grid gap-5 lg:grid-cols-3">
+          {t.servicos.itens.map((s) => (
+            <article class:list={["card-site reveal !p-8", s.destaque && "border-primary/60 bg-[linear-gradient(180deg,color-mix(in_srgb,var(--primary)_9%,var(--card)),var(--card))]"]}>
+              {s.destaque && <p class="bg-grad mb-4 inline-block rounded-full px-2.5 py-0.5 text-xs font-bold text-[#0b1020]">{t.servicos.selo}</p>}
+              <h3 class="mb-4 text-2xl font-semibold">{s.titulo}</h3>
+              <ul class="grid gap-2.5 text-muted-foreground">
+                {s.itens.map((it) => <li class="flex items-start gap-2.5"><Check className="mt-1 size-4 shrink-0 text-data" aria-hidden="true" />{it}</li>)}
+              </ul>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section id="contato" class="pb-24">
+      <div class="container-site">
+        <div class="reveal grid items-center gap-8 overflow-hidden rounded-[28px] border border-border p-8 md:p-14 lg:grid-cols-[1.3fr_1fr]"
+          style="background: radial-gradient(60% 120% at 100% 0%, var(--glow-1), transparent 60%), radial-gradient(50% 100% at 0% 100%, var(--glow-2), transparent 60%), var(--card)">
+          <div>
+            <p class="kicker">{t.contato.kicker}</p>
+            <h2 class="text-[clamp(2rem,4.5vw,3.2rem)] font-bold leading-tight">{t.contato.titulo}</h2>
+            <p class="mt-3 text-lg text-muted-foreground">{t.contato.texto}</p>
+          </div>
+          <div class="flex flex-col gap-3">
+            <a href={linkWhatsApp(t.whatsapp.mensagem)} target="_blank" rel="noopener" class="btn-pill btn-whatsapp !py-4" data-whatsapp="contato">
+              <MessageCircle aria-hidden="true" /> {t.whatsapp.rotulo}<span class="sr-only"> {t.whatsapp.novaAba}</span>
+            </a>
+            <a href={perfil.linkedin} target="_blank" rel="noopener" class="btn-pill btn-ghost !py-4"><IconLinkedin /> {t.contato.linkedin}</a>
+            {perfil.email && <a href={`mailto:${perfil.email}`} class="btn-pill btn-ghost !py-4"><Mail aria-hidden="true" /> {t.contato.email}</a>}
+            <p class="text-center text-sm text-muted-foreground">WhatsApp {perfil.whatsapp.exibicao}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer lang={lang} />
+</Layout>

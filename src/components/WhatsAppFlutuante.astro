@@ -1,0 +1,18 @@
+---
+import { MessageCircle } from "lucide-react";
+import { conteudo, linkWhatsApp, type Idioma } from "@/data/perfil";
+
+interface Props { lang: Idioma }
+const t = conteudo[Astro.props.lang];
+---
+<a
+  href={linkWhatsApp(t.whatsapp.mensagem)}
+  target="_blank"
+  rel="noopener"
+  class="whatsapp-flutuante"
+  aria-label={`${t.whatsapp.flutuante} ${t.whatsapp.novaAba}`}
+  data-whatsapp="flutuante"
+>
+  <MessageCircle className="size-7" aria-hidden="true" />
+  <span class="whatsapp-dica" aria-hidden="true">{t.whatsapp.flutuante}</span>
+</a>

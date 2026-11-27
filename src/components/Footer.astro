@@ -1,0 +1,21 @@
+---
+import { perfil, conteudo, rotas, rotasPrivacidade, linkWhatsApp, type Idioma } from "@/data/perfil";
+
+interface Props { lang: Idioma; naHome?: boolean }
+const { lang, naHome = true } = Astro.props;
+const t = conteudo[lang];
+const ano = new Date().getFullYear();
+---
+<footer class="border-t border-border py-8 text-sm text-muted-foreground">
+  <div class="container-site flex flex-wrap items-center justify-between gap-4">
+    <p>© {ano} {perfil.nome}</p>
+    <nav aria-label={t.ui.rodape} class="flex flex-wrap gap-x-6 gap-y-2">
+      <a href={perfil.linkedin} target="_blank" rel="noopener" class="hover:text-foreground">LinkedIn</a>
+      <a href={linkWhatsApp(t.whatsapp.mensagem)} target="_blank" rel="noopener" class="hover:text-foreground">WhatsApp</a>
+      <a href={rotasPrivacidade[lang]} class="hover:text-foreground">{t.consentimento.saibaMais}</a>
+      <!-- Sem JS cai na Política de Privacidade; com JS reabre o banner -->
+      <a href={rotasPrivacidade[lang]} data-abrir-consentimento class="hover:text-foreground">{t.consentimento.preferencias}</a>
+      <a href={naHome ? "#topo" : rotas[lang]} class="hover:text-foreground">{naHome ? t.ui.voltarTopo : t.privacidade.voltar}</a>
+    </nav>
+  </div>
+</footer>

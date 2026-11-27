@@ -1,0 +1,84 @@
+---
+import "@/styles/global.css";
+import ConsentBanner from "@/components/ConsentBanner.astro";
+import WhatsAppFlutuante from "@/components/WhatsAppFlutuante.astro";
+import { perfil, conteudo, rotas, type Idioma } from "@/data/perfil";
+
+interface Props {
+  lang: Idioma;
+  /** Caminho desta página em cada idioma (para canonical e hreflang) */
+  paginas?: Record<Idioma, string>;
+  titulo?: string;
+  descricao?: string;
+}
+const { lang, paginas = rotas, titulo, descricao } = Astro.props;
+const t = conteudo[lang];
+const tituloFinal = titulo ?? t.titulo;
+const descricaoFinal = descricao ?? t.descricao;
+const url = `${perfil.site}${paginas[lang]}`;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: perfil.nome,
+  jobTitle: perfil.cargo,
+  image: `${perfil.site}${perfil.foto.jpg}`,
+  telephone: `+${perfil.whatsapp.e164}`,
+  address: { "@type": "PostalAddress", addressLocality: "São Bernardo do Campo", addressRegion: "SP", addressCountry: "BR" },
+  knowsAbout: perfil.especialidades,
+  sameAs: [perfil.linkedin],
+};
+---
+<!doctype html>
+<html lang={t.htmlLang} class="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{tituloFinal}</title>
+    <meta name="description" content={descricaoFinal} />
+    <meta name="author" content={perfil.nome} />
+    <meta name="theme-color" content="#0b1020" />
+    <link rel="canonical" href={url} />
+    <link rel="alternate" hreflang="pt-BR" href={`${perfil.site}${paginas.pt}`} />
+    <link rel="alternate" hreflang="en" href={`${perfil.site}${paginas.en}`} />
+    <link rel="alternate" hreflang="x-default" href={`${perfil.site}${paginas.pt}`} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="sitemap" href="/sitemap.xml" />
+    {paginas === rotas && <link rel="preload" as="image" href={perfil.foto.webp} type="image/webp" fetchpriority="high" />}
+
+    <meta property="og:type" content="profile" />
+    <meta property="og:locale" content={t.ogLocale} />
+    <meta property="og:locale:alternate" content={lang === "pt" ? "en_US" : "pt_BR"} />
+    <meta property="og:title" content={tituloFinal} />
+    <meta property="og:description" content={descricaoFinal} />
+    <meta property="og:url" content={url} />
+    <meta property="og:image" content={`${perfil.site}${perfil.foto.jpg}`} />
+    <meta property="og:image:width" content="800" />
+    <meta property="og:image:height" content="800" />
+    <meta property="og:image:alt" content={t.ui.fotoAlt} />
+    <meta name="twitter:card" content="summary" />
+
+    <!-- Tema e marcação de JS antes da pintura: evita piscar -->
+    <script is:inline>
+      (function () {
+        var d = document.documentElement;
+        d.classList.add("js");
+        var t = localStorage.getItem("theme");
+        if (!t) t = matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+        d.classList.toggle("dark", t === "dark");
+      })();
+    </script>
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+  <body>
+    <a href="#conteudo" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-primary focus:px-4 focus:py-2 focus:text-primary-foreground">{t.ui.pular}</a>
+    <!-- Banner no início do DOM para ser o primeiro destino do teclado quando aberto -->
+    <ConsentBanner lang={lang} />
+    <slot />
+    <WhatsAppFlutuante lang={lang} />
+    <script>
+      import "@/scripts/site";
+      import "@/scripts/consentimento";
+    </script>
+  </body>
+</html>

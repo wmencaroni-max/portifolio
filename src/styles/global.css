@@ -1,0 +1,264 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/geist";
+
+@custom-variant dark (&:is(.dark *));
+
+/* Tokens documentados em docs/DESIGN-SYSTEM.md */
+@theme inline {
+  --font-heading: var(--font-sans);
+  --font-sans: "Geist Variable", system-ui, "Segoe UI", Roboto, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", "Cascadia Code", Consolas, monospace;
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --color-surface-alt: var(--surface-alt);
+  --color-data: var(--data);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+/* Tema claro */
+:root {
+  --background: #f6f7fb;
+  --surface-alt: #eef0f7;
+  --foreground: #0e1428;
+  --card: #ffffff;
+  --card-foreground: #0e1428;
+  --popover: #ffffff;
+  --popover-foreground: #0e1428;
+  --primary: #4f5bd5;
+  --primary-foreground: #ffffff;
+  --secondary: #eef0f7;
+  --secondary-foreground: #0e1428;
+  --muted: #eef0f7;
+  --muted-foreground: #4f587a;
+  --accent: #e6e8fb;
+  --accent-foreground: #0e1428;
+  --data: #08807c;
+  --destructive: #c4321f;
+  --border: #dde1ee;
+  --input: #c9cee0;
+  --ring: #4f5bd5;
+  --radius: 0.875rem;
+  --grad: linear-gradient(100deg, #4f5bd5 0%, #08807c 100%);
+  --glow-1: rgb(79 91 213 / 0.18);
+  --glow-2: rgb(8 128 124 / 0.14);
+  --shadow-soft: 0 1px 2px rgb(14 20 40 / 0.04), 0 12px 32px -12px rgb(14 20 40 / 0.14);
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Tema escuro (padrão) */
+.dark {
+  --background: #0b1020;
+  --surface-alt: #0f1529;
+  --foreground: #e8ebf7;
+  --card: #131a31;
+  --card-foreground: #e8ebf7;
+  --popover: #131a31;
+  --popover-foreground: #e8ebf7;
+  --primary: #8b95ff;
+  --primary-foreground: #0b1020;
+  --secondary: #1a2240;
+  --secondary-foreground: #e8ebf7;
+  --muted: #1a2240;
+  --muted-foreground: #a3abc8;
+  --accent: #1d2547;
+  --accent-foreground: #e8ebf7;
+  --data: #3ee6c4;
+  --destructive: #ff8f7d;
+  --border: #232c4a;
+  --input: #2e3960;
+  --ring: #8b95ff;
+  --grad: linear-gradient(100deg, #9aa2ff 0%, #3ee6c4 100%);
+  --glow-1: rgb(139 149 255 / 0.22);
+  --glow-2: rgb(62 230 196 / 0.14);
+  --shadow-soft: 0 1px 2px rgb(0 0 0 / 0.3), 0 18px 40px -18px rgb(0 0 0 / 0.6);
+}
+
+@layer base {
+  * { @apply border-border outline-ring/50; }
+  html { @apply font-sans; scroll-behavior: smooth; scroll-padding-top: 84px; color-scheme: light; }
+  html.dark { color-scheme: dark; }
+  body { @apply bg-background text-foreground antialiased; transition: background-color .3s, color .3s; }
+  h1, h2, h3 { text-wrap: balance; letter-spacing: -0.03em; }
+  p { text-wrap: pretty; }
+  ::selection { background: var(--primary); color: var(--primary-foreground); }
+  :focus-visible { outline: 2px solid var(--ring); outline-offset: 3px; border-radius: 6px; }
+  button:not(:disabled), [role="button"]:not(:disabled) { cursor: pointer; }
+}
+
+@layer components {
+  .container-site { width: min(100% - 2.5rem, 1160px); margin-inline: auto; }
+  .text-grad { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .bg-grad { background: var(--grad); }
+  .shadow-soft { box-shadow: var(--shadow-soft); }
+
+  .kicker {
+    display: inline-flex; align-items: center; gap: .5rem; margin-bottom: 1rem;
+    font-family: var(--font-mono); font-size: .8rem; font-weight: 600; letter-spacing: .14em;
+    text-transform: uppercase; color: var(--primary);
+  }
+  .kicker::before { content: ""; width: 22px; height: 2px; border-radius: 2px; background: var(--grad); }
+
+  /* Botões em pílula do site (links), coerentes com o Button do shadcn */
+  .btn-pill {
+    display: inline-flex; align-items: center; justify-content: center; gap: .55rem; white-space: nowrap;
+    padding: .8rem 1.35rem; border-radius: 999px; font-weight: 600; font-size: .98rem; border: 1px solid transparent;
+    transition: transform .15s var(--ease-out-soft), background-color .25s, border-color .25s;
+  }
+  .btn-pill:active { transform: scale(.97); }
+  .btn-pill svg { width: 18px; height: 18px; }
+  .btn-primary { background: var(--primary); color: var(--primary-foreground); box-shadow: 0 8px 24px -10px var(--primary); }
+  .btn-primary:hover { background: color-mix(in srgb, var(--primary) 85%, var(--foreground)); transform: translateY(-2px); }
+  .btn-ghost { border-color: var(--border); background: color-mix(in srgb, var(--card) 60%, transparent); }
+  .btn-ghost:hover { border-color: var(--primary); transform: translateY(-2px); }
+
+  /* WhatsApp: verde oficial com texto escuro (contraste medido 7,52:1) */
+  .btn-whatsapp { background: #25d366; color: #052e16; box-shadow: 0 8px 24px -10px #25d366; }
+  .btn-whatsapp:hover { background: #3ee07a; transform: translateY(-2px); }
+
+  .whatsapp-flutuante {
+    position: fixed; right: max(1rem, env(safe-area-inset-right)); bottom: max(1rem, env(safe-area-inset-bottom)); z-index: 45;
+    display: grid; place-items: center; width: 58px; height: 58px; border-radius: 999px;
+    background: #25d366; color: #052e16; box-shadow: 0 12px 30px -8px rgb(0 0 0 / .45), 0 0 0 4px color-mix(in srgb, #25d366 25%, transparent);
+    transition: transform .2s var(--ease-out-soft), box-shadow .2s;
+  }
+  .whatsapp-flutuante:hover { transform: translateY(-3px) scale(1.04); }
+  .whatsapp-flutuante:focus-visible { outline: 3px solid var(--ring); outline-offset: 4px; }
+  .whatsapp-dica {
+    position: absolute; right: calc(100% + .75rem); white-space: nowrap; padding: .45rem .8rem; border-radius: 999px;
+    background: var(--card); color: var(--foreground); border: 1px solid var(--border); font-size: .85rem; font-weight: 600;
+    box-shadow: var(--shadow-soft); opacity: 0; transform: translateX(6px); pointer-events: none; transition: opacity .2s, transform .2s;
+  }
+  .whatsapp-flutuante:hover .whatsapp-dica, .whatsapp-flutuante:focus-visible .whatsapp-dica { opacity: 1; transform: none; }
+
+  /* Banner de consentimento (LGPD) */
+  .consent {
+    position: fixed; z-index: 60; left: 1rem; right: 1rem; bottom: 1rem; max-height: calc(100dvh - 2rem); overflow: auto;
+    padding: 1.25rem; border-radius: 1.25rem; border: 1px solid var(--border);
+    background: color-mix(in srgb, var(--card) 96%, transparent); backdrop-filter: blur(12px); box-shadow: var(--shadow-soft), 0 20px 60px -20px rgb(0 0 0 / .5);
+    animation: consent-in .35s var(--ease-out-soft);
+  }
+  .consent[hidden] { display: none; }
+  @media (min-width: 640px) { .consent { right: auto; width: 440px; left: 1.25rem; bottom: 1.25rem; } }
+  .consent-btn {
+    flex: 1 1 auto; min-height: 44px; padding: .6rem 1.1rem; border-radius: 999px; font-size: .92rem; font-weight: 600;
+    border: 1.5px solid var(--primary); color: var(--foreground); background: color-mix(in srgb, var(--primary) 10%, transparent);
+    transition: background-color .2s;
+  }
+  .consent-btn:hover { background: color-mix(in srgb, var(--primary) 22%, transparent); }
+  .consent-switch { appearance: none; flex-shrink: 0; width: 44px; height: 26px; border-radius: 999px; background: var(--input); position: relative; cursor: pointer; transition: background-color .2s; }
+  .consent-switch::after { content: ""; position: absolute; top: 3px; left: 3px; width: 20px; height: 20px; border-radius: 50%; background: #fff; transition: transform .2s var(--ease-out-soft); }
+  .consent-switch:checked { background: var(--primary); }
+  .consent-switch:checked::after { transform: translateX(18px); }
+  /* No celular o banner ocupa a base da tela: esconde o botão flutuante enquanto ele estiver aberto */
+  @media (max-width: 639px) { .consent-aberto .whatsapp-flutuante { display: none; } }
+
+  .card-site {
+    position: relative; padding: 1.6rem; border-radius: var(--radius); border: 1px solid var(--border); background: var(--card);
+    transition: transform .35s var(--ease-out-soft), border-color .35s, box-shadow .35s;
+  }
+  .card-site:hover { transform: translateY(-4px); border-color: color-mix(in srgb, var(--primary) 55%, var(--border)); box-shadow: var(--shadow-soft); }
+
+  /* Grade "de dados" e brilho do topo */
+  .hero-bg::before {
+    content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: .35;
+    background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, #000 30%, transparent 75%);
+  }
+  .hero-glow {
+    position: absolute; inset: -20% -10% auto; height: 720px; pointer-events: none; z-index: -1;
+    background: radial-gradient(40% 50% at 75% 30%, var(--glow-1), transparent 70%), radial-gradient(35% 45% at 20% 10%, var(--glow-2), transparent 70%);
+  }
+
+  /* Foto quadrada: moldura com borda em gradiente e sombra suave */
+  .photo-frame {
+    padding: 5px; border-radius: 28px; background: var(--grad);
+    box-shadow: 0 40px 90px -35px var(--glow-1), 0 24px 50px -30px rgb(0 0 0 / .45);
+  }
+  .photo-frame img { border-radius: 23px; background: var(--card); }
+
+  /* Gráficos como marca d'água: grandes, atrás da foto (z-0), sem eventos e com baixa opacidade.
+     Ficam visíveis só ao redor da foto, que é opaca e fica na frente (z-10). */
+  .hero-visual { isolation: isolate; }
+  .wm-chart { position: absolute; z-index: 0; pointer-events: none; }
+  .wm-bars {
+    display: flex; align-items: flex-end; gap: 6%;
+    width: 86%; height: 70%; left: -24%; top: -18%; opacity: .4;
+  }
+  .wm-bars .bar { border-radius: 8px 8px 3px 3px; }
+  .wm-line { width: 132%; height: auto; left: -24%; bottom: -24%; color: var(--data); opacity: .6; }
+  .wm-donut { width: 32%; right: -12%; top: -14%; color: var(--primary); opacity: .4; }
+  .dark .wm-bars { opacity: .45; }
+  .dark .wm-line { opacity: .7; }
+  .dark .wm-donut { opacity: .5; }
+  /* Duas colunas estreitas (768 a 1023px): gráficos mais perto da foto para não invadir o texto */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .wm-bars { left: -12%; top: -16%; }
+    .wm-line { left: -12%; width: 124%; }
+    .wm-donut { right: -10%; }
+  }
+  @media (max-width: 640px) {
+    .wm-bars { left: -10%; top: -12%; }
+    .wm-line { left: -12%; width: 124%; }
+    .wm-donut { right: -6%; }
+  }
+
+  .spark-line { stroke-dasharray: 100; stroke-dashoffset: 100; animation: draw 2.2s .5s var(--ease-out-soft) forwards; }
+  .bar { flex: 1; border-radius: 4px 4px 2px 2px; background: var(--grad); transform-origin: bottom; animation: grow 1.2s var(--ease-out-soft) both; }
+
+  .marquee { overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); }
+  .marquee-track { display: flex; width: max-content; animation: scroll-x 38s linear infinite; }
+  .marquee:hover .marquee-track { animation-play-state: paused; }
+
+  /* Linha do tempo */
+  .timeline { position: relative; }
+  .timeline::before { content: ""; position: absolute; left: 6px; top: .5rem; bottom: .5rem; width: 2px; background: linear-gradient(var(--primary), var(--data), transparent); opacity: .5; }
+  .tl-dot { position: absolute; left: 0; top: .45rem; width: 14px; height: 14px; border-radius: 50%; background: var(--background); border: 3px solid var(--primary); }
+  @media (min-width: 768px) {
+    .timeline::before { left: 186px; }
+    .tl-dot { left: 180px; }
+  }
+
+  .status-dot { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; animation: pulse-green 2s infinite; }
+
+  /* Entrada ao rolar: só esconde quando o JS está ativo (html.js). Sem JS, tudo fica visível. */
+  .js .reveal { opacity: 0; transform: translateY(14px); transition: opacity .7s var(--ease-out-soft), transform .7s var(--ease-out-soft); transition-delay: var(--d, 0ms); }
+  .js .reveal.in { opacity: 1; transform: none; }
+}
+
+@keyframes draw { to { stroke-dashoffset: 0; } }
+@keyframes consent-in { from { opacity: 0; transform: translateY(12px); } }
+@keyframes grow { from { transform: scaleY(0); } }
+@keyframes scroll-x { to { transform: translateX(-50%); } }
+@keyframes pulse-green { 0% { box-shadow: 0 0 0 0 rgb(34 197 94 / .5); } 70% { box-shadow: 0 0 0 8px rgb(34 197 94 / 0); } 100% { box-shadow: 0 0 0 0 rgb(34 197 94 / 0); } }
+
+/* Acessibilidade: movimento reduzido */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+  .js .reveal { opacity: 1; transform: none; }
+  .spark-line { stroke-dashoffset: 0; }
+}
