@@ -103,6 +103,11 @@ Evidências da rodada 7:
 - Ponto vazio da escala trocado de bg-muted (quase invisível no tema escuro) para contorno muted-foreground/50.
 - Evidências: astro check 0 erros; 1280px lado a lado com mesma altura (214px); 375px empilhado, sem rolagem horizontal; textos e aria em pt e en.
 
+## Rodada 10 (27/11/2026): nova foto
+- Foto profissional enviada pelo dono (1043x1024, só ele) salva em referencias/foto-perfil.webp; a antiga do LinkedIn (com a mão de outra pessoa) saiu do repositório (continua no histórico do Git).
+- scripts/otimizar-foto.mjs simplificado: recorte quadrado central (cover), 800x800, lanczos3, nitidez leve. foto.webp 51 KB, foto.jpg 67 KB.
+- Evidências: astro check 0 erros; foto 800x800 exibida a 390px em 1280px e 300px em 375px; sem rolagem horizontal; console 0 erros.
+
 ## Não verificado
 Safari/iOS real, leitor de tela real, Lighthouse, publicação, revisão de inglês por falante nativo, carregamento real do GA4 com um ID (nenhuma requisição externa foi feita nos testes), revisão jurídica da Política de Privacidade, abertura real do WhatsApp no celular.
 

@@ -7,7 +7,7 @@ Site em português e inglês publicado em https://wmencaroni-max.github.io/porti
 2. Opcional: domínio próprio (trocar `site`, remover `base` no astro.config; atualizar sitemap e robots; ADR 0003).
 3. Opcional: ID do Google Analytics 4 em `perfil.gaId`. Só carrega com consentimento.
 4. Revisão jurídica da Política de Privacidade; depois, remover o aviso de modelo (`privacidade.aviso`).
-5. Opcional: foto maior em que só o dono apareça; rodar `node scripts/otimizar-foto.mjs <arquivo>`.
+5. Foto: nova foto profissional (1043x1024) em referencias/foto-perfil.webp; para trocar, rode `node scripts/otimizar-foto.mjs <arquivo>`.
 6. Opcional: certificações e resultados com números por experiência (não existem no LinkedIn).
 
 ## Fonte do conteúdo

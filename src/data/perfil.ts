@@ -23,7 +23,7 @@ export const perfil = {
   whatsapp: { exibicao: "(11) 98775-9692", e164: "5511987759692" },
   // Origem do site publicado (GitHub Pages). Os caminhos já incluem a base "/portifolio".
   site: "https://wmencaroni-max.github.io",
-  // Gerada por scripts/otimizar-foto.mjs a partir de referencias/foto-linkedin-original.png
+  // Gerada por scripts/otimizar-foto.mjs a partir de referencias/foto-perfil.webp
   foto: { webp: caminho("/foto.webp"), jpg: caminho("/foto.jpg") },
   // Google Analytics 4 (ex.: "G-XXXXXXX"). Vazio = nenhuma medição é carregada.
   // Mesmo preenchido, só carrega se o visitante aceitar "Estatísticas" no banner.
