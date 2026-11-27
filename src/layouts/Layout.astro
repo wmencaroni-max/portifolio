@@ -31,6 +31,7 @@ const jsonLd = {
   telephone: `+${perfil.whatsapp.e164}`,
   address: { "@type": "PostalAddress", addressLocality: "São Bernardo do Campo", addressRegion: "SP", addressCountry: "BR" },
   knowsAbout: perfil.especialidades,
+  knowsLanguage: ["pt-BR", ...t.trajetoria.idiomas.map((i) => i.codigo)],
   sameAs: [perfil.linkedin],
 };
 ---

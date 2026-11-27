@@ -98,6 +98,11 @@ Evidências da rodada 7:
 - Pedido do dono: tirar o número visível. Removido o texto abaixo do botão na seção Contato e o número no item 1 da Política de Privacidade (pt e en), que agora indica o botão de WhatsApp. O número segue nos links wa.me dos três botões e no JSON-LD (não visível).
 - Evidências: astro check 0 erros; build ok; 0 ocorrências do número como texto nas 4 páginas geradas; no navegador, texto da página sem o número e 3 links wa.me (contato, rodapé, flutuante).
 
+## Rodada 9 (27/11/2026): idiomas
+- Informado pelo dono: Espanhol avançado, Inglês intermediário. Card "Idiomas" ao lado de Formação acadêmica (Trajetória), empilhado no celular; escala visual 4/5 e 3/5 com aria-label ("Espanhol: Avançado, 4 de 5"). Dados em `conteudo.*.trajetoria.idiomas`. JSON-LD `knowsLanguage`: pt-BR, es, en (pt-BR inferido: site e perfil em português).
+- Ponto vazio da escala trocado de bg-muted (quase invisível no tema escuro) para contorno muted-foreground/50.
+- Evidências: astro check 0 erros; 1280px lado a lado com mesma altura (214px); 375px empilhado, sem rolagem horizontal; textos e aria em pt e en.
+
 ## Não verificado
 Safari/iOS real, leitor de tela real, Lighthouse, publicação, revisão de inglês por falante nativo, carregamento real do GA4 com um ID (nenhuma requisição externa foi feita nos testes), revisão jurídica da Política de Privacidade, abertura real do WhatsApp no celular.
 

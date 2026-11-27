@@ -134,6 +134,13 @@ const pt = {
       { titulo: "Pós-graduação (Especialização) em Ciência de Dados: Big Data Processing and Analytics", detalhe: "Universidade Presbiteriana Mackenzie, 2022 a 2023" },
       { titulo: "Bacharelado em Sistemas de Informação", detalhe: "Centro Universitário Fundação Santo André, 2013 a 2016" },
     ],
+    // Informado pelo dono em 27/11/2026. pontos = escala visual de 1 a 5
+    idiomasTitulo: "Idiomas",
+    idiomas: [
+      { idioma: "Espanhol", nivel: "Avançado", pontos: 4, codigo: "es" },
+      { idioma: "Inglês", nivel: "Intermediário", pontos: 3, codigo: "en" },
+    ],
+    escala: "de 5",
   },
   metodo: {
     kicker: "Método",
@@ -291,6 +298,12 @@ const en: Conteudo = {
       { titulo: "Postgraduate Specialization in Data Science: Big Data Processing and Analytics", detalhe: "Mackenzie Presbyterian University, 2022 to 2023" },
       { titulo: "Bachelor's Degree in Information Systems", detalhe: "Fundação Santo André University Center, 2013 to 2016" },
     ],
+    idiomasTitulo: "Languages",
+    idiomas: [
+      { idioma: "Spanish", nivel: "Advanced", pontos: 4, codigo: "es" },
+      { idioma: "English", nivel: "Intermediate", pontos: 3, codigo: "en" },
+    ],
+    escala: "out of 5",
   },
   metodo: {
     kicker: "Method",

@@ -3,7 +3,7 @@ import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
 import IconLinkedin from "@/components/IconLinkedin.astro";
 import Footer from "@/components/Footer.astro";
-import { ArrowRight, MapPin, ChartLine, Database, ChartColumn, TrendingUp, Check, Mail, MessageCircle } from "lucide-react";
+import { ArrowRight, MapPin, ChartLine, Database, ChartColumn, TrendingUp, Check, Mail, MessageCircle, Languages } from "lucide-react";
 import { perfil, conteudo, linkWhatsApp, type Idioma } from "@/data/perfil";
 
 interface Props { lang: Idioma }
@@ -146,11 +146,30 @@ const h2 = "reveal text-[clamp(1.9rem,3.8vw,2.9rem)] font-bold leading-tight";
             </li>
           ))}
         </ol>
-        <div class="reveal rounded-[var(--radius)] border border-border bg-card p-7">
-          <h3 class="mb-3 text-xl font-semibold">{t.trajetoria.formacaoTitulo}</h3>
-          <ul class="grid list-disc gap-1.5 pl-5 text-muted-foreground">
-            {t.trajetoria.formacao.map((f) => <li><strong class="text-foreground">{f.titulo}</strong>, {f.detalhe}</li>)}
-          </ul>
+        <!-- Formação e idiomas lado a lado (empilhados no celular) -->
+        <div class="grid gap-5 lg:grid-cols-[1.7fr_1fr]">
+          <div class="reveal rounded-[var(--radius)] border border-border bg-card p-7">
+            <h3 class="mb-3 text-xl font-semibold">{t.trajetoria.formacaoTitulo}</h3>
+            <ul class="grid list-disc gap-1.5 pl-5 text-muted-foreground">
+              {t.trajetoria.formacao.map((f) => <li><strong class="text-foreground">{f.titulo}</strong>, {f.detalhe}</li>)}
+            </ul>
+          </div>
+          <div class="reveal rounded-[var(--radius)] border border-border bg-card p-7" id="idiomas">
+            <h3 class="mb-4 flex items-center gap-2 text-xl font-semibold"><Languages className="size-5 text-primary" aria-hidden="true" />{t.trajetoria.idiomasTitulo}</h3>
+            <ul class="grid gap-4">
+              {t.trajetoria.idiomas.map((i) => (
+                <li class="flex items-center justify-between gap-4">
+                  <span>
+                    <strong class="block text-foreground">{i.idioma}</strong>
+                    <span class="text-sm text-muted-foreground">{i.nivel}</span>
+                  </span>
+                  <span class="flex gap-1.5" role="img" aria-label={`${i.idioma}: ${i.nivel}, ${i.pontos} ${t.trajetoria.escala}`}>
+                    {[1, 2, 3, 4, 5].map((n) => <span class:list={["size-2.5 rounded-full", n <= i.pontos ? "bg-grad" : "border border-muted-foreground/50"]}></span>)}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </section>
