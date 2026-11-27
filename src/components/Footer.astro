@@ -1,4 +1,5 @@
 ---
+import IconWhatsApp from "@/components/IconWhatsApp.astro";
 import { perfil, conteudo, rotas, rotasPrivacidade, linkWhatsApp, type Idioma } from "@/data/perfil";
 
 interface Props { lang: Idioma; naHome?: boolean }
@@ -6,12 +7,13 @@ const { lang, naHome = true } = Astro.props;
 const t = conteudo[lang];
 const ano = new Date().getFullYear();
 ---
-<footer class="border-t border-border py-8 text-sm text-muted-foreground">
-  <div class="container-site flex flex-wrap items-center justify-between gap-4">
+<!-- Espaço reservado para o botão flutuante do WhatsApp (canto inferior direito) -->
+<footer class="border-t border-border pt-8 pb-28 text-sm text-muted-foreground sm:pb-8">
+  <div class="container-site flex flex-wrap items-center justify-between gap-4 sm:pr-20">
     <p>© {ano} {perfil.nome}</p>
     <nav aria-label={t.ui.rodape} class="flex flex-wrap gap-x-6 gap-y-2">
       <a href={perfil.linkedin} target="_blank" rel="noopener" class="hover:text-foreground">LinkedIn</a>
-      <a href={linkWhatsApp(t.whatsapp.mensagem)} target="_blank" rel="noopener" class="hover:text-foreground">WhatsApp</a>
+      <a href={linkWhatsApp(t.whatsapp.mensagem)} target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 hover:text-foreground"><IconWhatsApp class="size-4" />WhatsApp</a>
       <a href={rotasPrivacidade[lang]} class="hover:text-foreground">{t.consentimento.saibaMais}</a>
       <!-- Sem JS cai na Política de Privacidade; com JS reabre o banner -->
       <a href={rotasPrivacidade[lang]} data-abrir-consentimento class="hover:text-foreground">{t.consentimento.preferencias}</a>

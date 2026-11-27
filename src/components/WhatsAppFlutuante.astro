@@ -1,5 +1,5 @@
 ---
-import { MessageCircle } from "lucide-react";
+import IconWhatsApp from "@/components/IconWhatsApp.astro";
 import { conteudo, linkWhatsApp, type Idioma } from "@/data/perfil";
 
 interface Props { lang: Idioma }
@@ -13,6 +13,6 @@ const t = conteudo[Astro.props.lang];
   aria-label={`${t.whatsapp.flutuante} ${t.whatsapp.novaAba}`}
   data-whatsapp="flutuante"
 >
-  <MessageCircle className="size-7" aria-hidden="true" />
+  <IconWhatsApp class="size-8" />
   <span class="whatsapp-dica" aria-hidden="true">{t.whatsapp.flutuante}</span>
 </a>

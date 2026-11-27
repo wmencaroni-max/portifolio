@@ -108,6 +108,11 @@ Evidências da rodada 7:
 - scripts/otimizar-foto.mjs simplificado: recorte quadrado central (cover), 800x800, lanczos3, nitidez leve. foto.webp 51 KB, foto.jpg 67 KB.
 - Evidências: astro check 0 erros; foto 800x800 exibida a 390px em 1280px e 300px em 375px; sem rolagem horizontal; console 0 erros.
 
+## Rodada 11 (27/11/2026): logo do WhatsApp
+- Ícone genérico (lucide MessageCircle) trocado pelo logo do WhatsApp em src/components/IconWhatsApp.astro, com o path do Simple Icons 16.38.1 (CC0-1.0) baixado de unpkg e validado (só um path, sem script/link). Usado no botão flutuante (32px), no botão de Contato (20px) e no link do rodapé (16px).
+- Corrigido: o botão flutuante cobria "Voltar ao topo" no fim da página. Rodapé com pb-28 no celular e pr-20 a partir de 640px.
+- Evidências: astro check 0 erros; 3 links wa.me com o logo; 0 sobreposições entre o botão e os links do rodapé em 1280px e 375px; sem rolagem horizontal.
+
 ## Não verificado
 Safari/iOS real, leitor de tela real, Lighthouse, publicação, revisão de inglês por falante nativo, carregamento real do GA4 com um ID (nenhuma requisição externa foi feita nos testes), revisão jurídica da Política de Privacidade, abertura real do WhatsApp no celular.
 
