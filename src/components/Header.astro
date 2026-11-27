@@ -17,11 +17,11 @@ const base = naHome ? "" : rotas[lang];
 const itens = t.navegacao.map((i) => ({ ...i, href: `${base}${i.href}` }));
 ---
 <header data-header class="sticky top-0 z-40 border-b border-transparent bg-background/70 backdrop-blur-md transition-colors data-[scrolled]:border-border">
-  <div class="container-site flex h-[68px] items-center justify-between gap-4">
-    <a href={naHome ? "#topo" : rotas[lang]} class="flex items-center gap-3 font-bold" aria-label={`${perfil.nome}, ${t.ui.inicio}`}>
-      <span class="bg-grad grid size-[38px] place-items-center rounded-[11px] text-sm font-extrabold tracking-tighter text-[#0b1020]" aria-hidden="true">WM</span>
+  <div class="container-site flex h-[68px] items-center justify-between gap-2 sm:gap-4">
+    <a href={naHome ? "#topo" : rotas[lang]} class="flex min-w-0 items-center gap-2 font-bold sm:gap-3" aria-label={`${perfil.nome}, ${t.ui.inicio}`}>
+      <span class="bg-grad grid size-[38px] shrink-0 max-[389px]:hidden place-items-center rounded-[11px] text-sm font-extrabold tracking-tighter text-[#0b1020]" aria-hidden="true">WM</span>
       <span class="flex flex-col leading-tight">
-        <span>{perfil.nomeCurto}</span>
+        <span class="whitespace-nowrap text-[0.95rem] sm:text-base">{perfil.nomeCurto}</span>
         <span class="hidden text-[0.68rem] font-semibold uppercase tracking-[0.12em] text-muted-foreground sm:block">{t.ui.subMarca}</span>
       </span>
     </a>
@@ -34,10 +34,10 @@ const itens = t.navegacao.map((i) => ({ ...i, href: `${base}${i.href}` }));
       ))}
     </nav>
 
-    <div class="flex items-center gap-2">
+    <div class="flex shrink-0 items-center gap-1.5 sm:gap-2">
       <a href={paginas[outro]} hreflang={t.ui.outroIdioma.hreflang} lang={t.ui.outroIdioma.hreflang} aria-label={t.ui.outroIdioma.aria} data-lang-switch
-        class="flex h-10 items-center gap-1.5 rounded-full border border-border px-3 text-sm font-semibold transition-colors hover:border-primary">
-        <Languages className="size-4" aria-hidden="true" />
+        class="flex h-10 items-center gap-1 rounded-full border border-border px-2.5 text-sm sm:gap-1.5 sm:px-3 font-semibold transition-colors hover:border-primary">
+        <Languages className="size-4 max-[389px]:hidden" aria-hidden="true" />
         {t.ui.outroIdioma.rotulo}
       </a>
       <button data-theme-toggle type="button" aria-label={t.ui.alternarTema}
@@ -45,7 +45,7 @@ const itens = t.navegacao.map((i) => ({ ...i, href: `${base}${i.href}` }));
         <Sun className="hidden size-[18px] dark:block" aria-hidden="true" />
         <Moon className="block size-[18px] dark:hidden" aria-hidden="true" />
       </button>
-      <a href={`${base}#contato`} class="btn-pill btn-primary hidden !px-4 !py-2 text-sm lg:inline-flex">{t.hero.ctaPrincipal}</a>
+      <a href={`${base}#contato`} class="btn-pill btn-primary hidden !px-4 !py-2 text-sm xl:inline-flex">{t.hero.ctaPrincipal}</a>
       <div class="lg:hidden">
         <MobileNav
           client:media="(max-width: 1023px)"

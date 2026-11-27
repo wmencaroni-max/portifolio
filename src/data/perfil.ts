@@ -12,7 +12,7 @@ export const caminho = (p: string) => `${BASE}${p}`;
 // Dados que não mudam com o idioma
 export const perfil = {
   nome: "Wendel Moretti Mencaroni",
-  nomeCurto: "Wendel",
+  nomeCurto: "Wendel Mencaroni",
   cargo: "Growth Analytics Sênior",
   cidade: "São Bernardo do Campo, SP",
   especialidades: ["Data Science", "Big Data", "Analytics", "Growth Hacking"],

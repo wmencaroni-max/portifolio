@@ -113,6 +113,11 @@ Evidências da rodada 7:
 - Corrigido: o botão flutuante cobria "Voltar ao topo" no fim da página. Rodapé com pb-28 no celular e pr-20 a partir de 640px.
 - Evidências: astro check 0 erros; 3 links wa.me com o logo; 0 sobreposições entre o botão e os links do rodapé em 1280px e 375px; sem rolagem horizontal.
 
+## Rodada 12 (27/11/2026): sobrenome no cabeçalho
+- Pedido do dono: Mencaroni ao lado do nome no topo. perfil.nomeCurto = "Wendel Mencaroni".
+- Ajustes para caber: botão "Vamos conversar" do cabeçalho só a partir de 1280px (xl); espaçamentos menores abaixo de 640px; abaixo de 390px o monograma WM e o ícone do botão de idioma ficam ocultos (decorativos).
+- Evidências (iframes com a página real): nome sem sobrepor os botões, botões dentro da margem e sem rolagem horizontal em 320, 360, 375, 389, 390, 412, 640, 1024 e 1280px (pt) e 375 e 390px (en). Antes do ajuste: 1024px passava 59px da tela e 375px empurrava o menu 19px para fora.
+
 ## Não verificado
 Safari/iOS real, leitor de tela real, Lighthouse, publicação, revisão de inglês por falante nativo, carregamento real do GA4 com um ID (nenhuma requisição externa foi feita nos testes), revisão jurídica da Política de Privacidade, abertura real do WhatsApp no celular.
 
