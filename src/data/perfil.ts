@@ -194,7 +194,7 @@ const pt = {
     atualizado: "Atualizada em 26/11/2026",
     voltar: "Voltar ao site",
     secoes: [
-      { titulo: "1. Quem é o controlador", texto: `O controlador dos dados tratados neste site é ${perfil.nome}, ${perfil.cidade}. Contato para assuntos de privacidade: WhatsApp ${perfil.whatsapp.exibicao}.` },
+      { titulo: "1. Quem é o controlador", texto: `O controlador dos dados tratados neste site é ${perfil.nome}, ${perfil.cidade}. Contato para assuntos de privacidade: pelo botão de WhatsApp deste site.` },
       { titulo: "2. Quais dados são tratados", texto: "Este site não tem formulários e não pede dados pessoais. No seu navegador ficam guardadas apenas a escolha de tema (claro ou escuro) e a sua escolha de privacidade. Se você permitir estatísticas e elas estiverem ativas, podem ser coletados dados técnicos de navegação de forma agregada, como páginas visitadas, tipo de dispositivo e cidade aproximada." },
       { titulo: "3. Para que os dados são usados", texto: "Armazenamento necessário: lembrar suas preferências (base legal: legítimo interesse e execução do serviço solicitado). Estatísticas: entender o uso do site para melhorá-lo (base legal: consentimento, art. 7º, I, da LGPD). Não vendemos dados nem os usamos para publicidade." },
       { titulo: "4. Compartilhamento", texto: "Se as estatísticas forem ativadas com o seu consentimento, os dados de navegação são processados pelo Google (Google Analytics), que pode tratá-los fora do Brasil conforme as próprias políticas. Ao clicar no WhatsApp ou no LinkedIn você sai deste site, e o tratamento passa a seguir as políticas dessas plataformas." },
@@ -351,7 +351,7 @@ const en: Conteudo = {
     atualizado: "Last updated on November 26, 2026",
     voltar: "Back to the site",
     secoes: [
-      { titulo: "1. Data controller", texto: `The controller of the data processed on this website is ${perfil.nome}, ${perfil.cidade}, Brazil. Privacy contact: WhatsApp +55 ${perfil.whatsapp.exibicao}.` },
+      { titulo: "1. Data controller", texto: `The controller of the data processed on this website is ${perfil.nome}, ${perfil.cidade}, Brazil. Privacy contact: through the WhatsApp button on this website.` },
       { titulo: "2. What data is processed", texto: "This website has no forms and does not ask for personal data. Your browser only stores your theme choice (light or dark) and your privacy choice. If you allow analytics and it is active, technical browsing data may be collected in aggregate, such as pages visited, device type and approximate city." },
       { titulo: "3. Why the data is used", texto: "Necessary storage: remembering your preferences (legal basis: legitimate interest and providing the requested service). Analytics: understanding how the site is used in order to improve it (legal basis: consent, LGPD art. 7, I). We do not sell data or use it for advertising." },
       { titulo: "4. Sharing", texto: "If analytics is enabled with your consent, browsing data is processed by Google (Google Analytics), which may process it outside Brazil under its own policies. When you click WhatsApp or LinkedIn you leave this website, and those platforms' policies apply." },

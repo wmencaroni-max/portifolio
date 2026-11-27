@@ -94,6 +94,10 @@ Evidências da rodada 7:
 - Run https://github.com/wmencaroni-max/portifolio/actions/runs/45999172836: completed success.
 - https://wmencaroni-max.github.io/portifolio/: /, /en/, /privacidade/, /en/privacy/, foto.webp, foto.jpg, favicon.svg, sitemap.xml com HTTP 200; HTML com experiências e link do WhatsApp; no navegador: foto 800x800, JS ativo, banner de consentimento visível na primeira visita, 9 experiências, todas as requisições do site 200.
 
+## Rodada 8 (27/11/2026): número do WhatsApp só nos botões
+- Pedido do dono: tirar o número visível. Removido o texto abaixo do botão na seção Contato e o número no item 1 da Política de Privacidade (pt e en), que agora indica o botão de WhatsApp. O número segue nos links wa.me dos três botões e no JSON-LD (não visível).
+- Evidências: astro check 0 erros; build ok; 0 ocorrências do número como texto nas 4 páginas geradas; no navegador, texto da página sem o número e 3 links wa.me (contato, rodapé, flutuante).
+
 ## Não verificado
 Safari/iOS real, leitor de tela real, Lighthouse, publicação, revisão de inglês por falante nativo, carregamento real do GA4 com um ID (nenhuma requisição externa foi feita nos testes), revisão jurídica da Política de Privacidade, abertura real do WhatsApp no celular.
 
